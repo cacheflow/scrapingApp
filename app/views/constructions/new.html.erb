@@ -1,0 +1,27 @@
+<% if current_user %> 
+
+  <h1>Get Mascus</h1>
+  <div id = "bear" style="display: none;"> 
+     <%= image_tag("bear.gif") %> 
+  </div> 
+
+  <div class = "search_form">
+      <%=bootstrap_form_for @construction, html: {'data-parsley-validate' => ''} do |c| %> 
+        <%=c.search_field :site, required: true, 'data-parsley-trigger' => 
+              'blur', placeholder: 'enter a mascus url' %>
+        <%=c.submit "Scrape", class: "btn btn-primary" %> 
+    <% end %>  
+  </div> 
+<% else %> 
+    <%= render partial: "current_user/login" %> 
+
+<% end %>   
+
+<script type="text/javascript">
+$(document).ready(
+  $('.btn').click(function(){
+    $('.search_form').hide();
+    $('#bear').show();
+  })
+);  
+</script>

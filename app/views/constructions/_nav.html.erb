@@ -1,0 +1,27 @@
+<div class="navbar navbar-inverse navbar-static-top" role="navigation">
+
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        </button>
+       
+    </div>
+
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+          <p> Hello <%= current_user.email %> 
+        <ul class="nav navbar-nav">
+            <li><%= link_to "ScrapingTool", welcome_index_path, class: "navbar-brand" %></li>
+            <li><%=link_to "Get Craigslist", new_craigslist_path %> </li>
+            <li><%=link_to "Get Mascus", new_construction_path %></li>
+            <li><%=link_to "See Mascus ads", constructions_path %></li>
+            <li><%=link_to "Log Out", new_session_path, :method => :delete %> </li>
+        </ul>
+
+
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,9 @@
+{
+  "name": "dsl-generated dependencies",
+  "dependencies": {
+    "bootstrap": "latest",
+    "angular": "latest",
+    "jquery": "latest",
+    "parsleyjs": "latest"
+  }
+}

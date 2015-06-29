@@ -1,0 +1,40 @@
+<% if current_user %> 
+  <h1>Craigslist</h1> 
+
+  <div id = "search_form">
+    <%= form_tag @construction, :url => constructions_path, :method => :get do %>
+        <%= text_field_tag :search, params[:search], :id => 'search_field' %>
+        <%= submit_tag "Search", :name => nil,class: "btn btn-info" %> 
+        <%= link_to "Clear", craigslists_path %>
+        <%= link_to "Download your Craigslists ads", craigslists_path(format: "csv", search: params[:search]), class: "btn btn-primary" %>
+    <% end %> 
+  </div>
+
+
+
+<table>
+  <tr> 
+    <td>Title</td>
+    <td>Body</td>
+    <td style="padding: 10px;">Number</td>
+    <td style="padding: 10px;">Image</td>
+  </tr> 
+
+
+
+  <tr> 
+    <% @craigslists.each do |c| %> 
+      <td><%=c.title%> </td>
+      <td> <%=c.body%></td>
+      <td><%=c.number %> </td>
+      <td> <%=image_tag("#{c.image}")%> </td>
+  </tr> 
+  <% end %> 
+
+</table>
+
+<% else %> 
+    <%= render partial: "current_user/login" %>
+<% end %> 
+
+

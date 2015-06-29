@@ -1,0 +1,26 @@
+<% if current_user %> 
+  <div class = "search_form">
+    <h1>Get Recycler</h1>
+      <%=bootstrap_form_for @recycler, html: {'data-parsley-validate' => ''} do |u| %> 
+        <%=u.search_field :site, required: true, 'data-parsley-trigger' => 'blur', placeholder: 'enter a recycler url' %>
+        <%=u.number_field :pages, required: true, 'data-parsley-trigger' => 'blur', placeholder: "enter the amount of pages you want to scrape" %> 
+        <%=u.submit "Get", class: "btn btn-primary" %> 
+    <% end %>  
+  </div> 
+
+<% else %> 
+  <%= render partial: "current_user/login" %>
+ <% end %>
+
+<div id = "bear" style="display: none;"> 
+     <%= image_tag("bear.gif") %> 
+  </div> 
+
+<script type="text/javascript">
+$(document).ready(
+  $('.btn').click(function(){
+    $('.search_form').hide();
+    $('#bear').show();
+  })
+);  
+</script>

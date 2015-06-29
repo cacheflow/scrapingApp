@@ -1,0 +1,5 @@
+<% headers = ["Title", "Body", "Image"] %> 
+<%= CSV.generate_line headers %> 
+<% @craigslists.each do |craigslist| %> 
+  <%= CSV.generate_line([craigslist.title, craigslist.body, craigslist.image]) %> 
+  <% end %> 

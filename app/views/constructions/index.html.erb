@@ -1,0 +1,53 @@
+<% if current_user %> 
+  <h1>Mascus</h1> 
+
+  <div id = "search_form">
+    <%= form_tag @construction, :url => constructions_path, :method => :get do %>
+        <%= text_field_tag :search, params[:search], :id => 'search_field' %>
+        <%= submit_tag "Search", :name => nil,class: "btn btn-info" %> 
+        <%= link_to "Clear", constructions_path %>
+        <%= link_to "Download your Mascus ads", constructions_path(format: "csv", search: params[:search]), class: "btn btn-primary" %>
+    <% end %> 
+  </div>
+
+
+
+  <table>
+    <tr> 
+      <td>Brand</td>
+      <td>Description</td>
+      <td style="padding: 10px;">Number</td>
+      <td style="padding: 10px;">Image</td>
+      <td>Image</td>
+    </tr> 
+
+
+
+    <tr> 
+      <% @constructions.each do |c| %> 
+        <td><%=c.brand%> </td>
+        <td> <%=c.description%></td>
+        <td><%=c.location %> </td>
+        <td> <%=c.number %> </td>
+        <td> <%=c.price %> </td>
+        <td> <%=image_tag("#{c.image}")%> </td>
+    </tr> 
+    <% end %> 
+
+  </table>
+
+<% else %> 
+   <div class = "container">
+      <div class = "col-md-4"></div>
+      <div class = "col-md-4">
+          <h1>Log In</h1>
+          <%= form_for :session, :url => sessions_path do |f| %>
+              <span>Email: </span><%= f.text_field :email, class: "form-control" %>
+              <span>Password: </span><%= f.password_field :password, class: "form-control" %>
+              <%= f.submit "Log in", class: "btn btn-default" %>
+          <% end %>
+          <div class = "clear"></div>
+      </div>
+      <div class = "col-md-4"></div>
+  </div>
+<% end %> 

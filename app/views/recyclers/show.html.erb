@@ -1,0 +1,9 @@
+
+<h1>Recycler</h1>
+<%= form_tag @craigslist, :url => recyclers_path, :method => :get do %>
+    <%= text_field_tag :search, params[:search], :id => 'search_field' %>
+    <%= submit_tag "Search", :name => nil, class: "btn btn-info" %> 
+    <%= link_to "Clear", craigslists_path %>
+<% end %> 
+
+<%= link_to "See your ads ^__^", recyclers_path(params.merge(format: "csv")) %>

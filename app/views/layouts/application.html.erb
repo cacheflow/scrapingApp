@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>EC Content Management Tool</title>
+  <%= stylesheet_link_tag   'application' %>
+  <%= javascript_include_tag 'application'  %>
+ 
+  <%= csrf_meta_tags %>
+ <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"> 
+
+</head>
+<body>
+  <% if current_user %>
+    <%= render partial: "current_user/nav" %> 
+  <% else %>
+    <%= render partial: "current_user/default" %>
+<% end %> 
+
+ <%= yield %>
+</body>
+
+</html>

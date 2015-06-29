@@ -1,0 +1,9 @@
+<h1>Craigslists#create</h1>
+<p>Find me in app/views/craigslists/create.html.erb</p>
+<p>Find me in app/views/craigslists/new.html.erb</p>
+  <%=form_for @craigslist do |c| %> 
+    <%=c.text_field :site %>
+    <%=c.submit "Scrape" %>  
+  <% end %>  
+
+  <%= @value %> 

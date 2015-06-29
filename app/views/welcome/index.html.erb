@@ -1,0 +1,37 @@
+<style type="text/css">
+  #get_links{
+    display: inline-block;
+  }
+</style>
+<% if current_user %> 
+  <div style="display: block; margin: 0 auto; width: 16em;">
+    <h1>Welcome to EC Content Tool </h1> 
+    <h1 style><%= sanitize current_user.email%></h1>
+    <div style = "width: 100%; text-align: center">
+      <%= link_to "Get Recycler", new_recycler_path, class: "btn btn-primary", id: "scrape_links" %> 
+        <%= link_to "Get Mascus", new_construction_path, class: "btn btn-danger", id: "scrape_links" %>
+        <%= link_to "Get Backpage", new_backpage_path, class: "btn btn-success", id: "scrape_links" %>
+    </div> 
+  </div>
+ 
+
+<% else %> 
+
+  <div class = "container">
+        <div class = "col-md-4"></div>
+        <div class = "col-md-4">
+            <h1>Log In</h1>
+            <%= form_for :session, html: {'data-parsley-validate'=>''}, :url => sessions_path do |f| %>
+                <span>Email: </span>
+                <%= f.text_field :email, class: "form-control", required: true, 'data-parsley-trigger' => 
+                'blur', placeholder: 'enter your email address' %>
+                <span>Password: </span><%= f.password_field :password, class: "form-control", required: true, 'data-parsley-trigger' => 
+                'blur', 'data-parsley-minlength' => '6', placeholder: 'enter your password'%>
+                <%= f.submit "Log in", class: "btn btn-default" %>
+            <% end %>
+            <div class = "clear"></div>
+        </div>
+        <div class = "col-md-4"></div>
+    </div>
+
+  <% end %> 

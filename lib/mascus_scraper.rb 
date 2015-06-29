@@ -1,0 +1,13 @@
+module MascusScraper 
+
+  def self.scrape 
+    agent = Mechanize.new
+    agent.user_agent = "Chrome" 
+    page = agent.get("#{User.site}")
+    links = []
+    page.search("td.column > a").each do |link| 
+      links << link 
+      puts links 
+    end 
+  end 
+end 

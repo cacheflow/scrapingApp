@@ -1,0 +1,31 @@
+  <h1>Craigslists</h1>
+
+  <div class = "search_form">
+    <%= form_tag @craigslist, :url => craigslists_path, :method => :get do %>
+        <%= text_field_tag :search, params[:search], :id => 'search_field' %>
+        <%= submit_tag "Search", :name => nil, id: "submit", class: "btn btn-info" %> 
+        <%= link_to "Clear", craigslists_path %>
+        <%= link_to "Downloads your Craigslist ads ^__^", craigslists_path(format: "csv", search: params[:search]),  class: "btn btn-primary"  %>    
+    <% end %> 
+  </div> 
+
+  <table>
+    <thead>  
+      <tr> 
+        <td>Title</td>
+        <td>Body</td>
+        <td>Image</td>
+      </tr> 
+    </thead> 
+    
+    <tbody>
+      <tr> 
+      <% @craigslists.each do |c| %> 
+        <td><%=c.title%> </td>
+        <td> <%=c.body%></td>
+        <td> <%=image_tag("#{c.image}")%> </td>
+      </tr>
+    </tbody> 
+  </table>
+<% end %> 
+

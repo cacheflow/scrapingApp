@@ -1,0 +1,30 @@
+<div class = "container">
+  <div class = "col-md-4"></div>
+  <div class = "col-md-4">
+    <h1>Sign Up</h1>          
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {'data-parsley-validate' => ''}) do |f| %>
+      <%= devise_error_messages! %>
+      <%= f.label :email  %><br />
+      <%= f.email_field :email, autofocus: true, class: "form-control", required: true, 'data-parsley-trigger' => 
+              'blur' %>  
+      <%= f.label :password %>
+      <% if @minimum_password_length %>
+      <%= @minimum_password_length %> characters minimum)
+      <% end %>
+      <%= f.password_field :password, class: "form-control", autocomplete: "off", required: true, 'data-parsley-trigger' => 
+              'blur' %>
+
+      <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation, class: "form-control", autocomplete: "off", required: true, 'data-parsley-trigger' => 
+              'blur' %>
+      <%= f.submit "Sign up", class: "btn btn-default" %>
+    <% end %>
+<!--     <%= render "devise/shared/links" %>
+ -->
+    <div class = "clear"></div>
+  </div>
+      <div class = "col-md-4"></div>
+</div>
+
+
+

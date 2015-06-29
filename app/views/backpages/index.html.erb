@@ -1,0 +1,48 @@
+<% if current_user %> 
+  <h1>Backpage</h1> 
+
+  <div id = "search_form">
+    <%= form_tag @backpage, :url => backpages_path, :method => :get do %>
+        <%= text_field_tag :search, params[:search], :id => 'search_field' %>
+        <%= submit_tag "Search", :name => nil,class: "btn btn-info" %> 
+        <%= link_to "Clear", backpages_path %>
+        <%= link_to "Download your Backpage ads", backpages_path(format: "csv", search: params[:search]), class: "btn btn-primary" %>
+    <% end %> 
+  </div>
+
+
+
+  <table>
+    <tr> 
+      <td>Title</td>
+      <td>Body</td>
+      <td>Image</td>
+    </tr> 
+
+
+
+    <tr> 
+      <% @backpages.each do |b| %> 
+        <td><%=b.title%> </td>
+        <td> <%=b.body%></td>
+        <td> <%=image_tag("#{b.image}")%> </td>
+    </tr> 
+    <% end %> 
+
+  </table>
+
+<% else %> 
+   <div class = "container">
+      <div class = "col-md-4"></div>
+      <div class = "col-md-4">
+          <h1>Log In</h1>
+          <%= form_for :session, :url => sessions_path do |f| %>
+              <span>Email: </span><%= f.text_field :email, class: "form-control" %>
+              <span>Password: </span><%= f.password_field :password, class: "form-control" %>
+              <%= f.submit "Log in", class: "btn btn-default" %>
+          <% end %>
+          <div class = "clear"></div>
+      </div>
+      <div class = "col-md-4"></div>
+  </div>
+<% end %> 
