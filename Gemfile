@@ -6,6 +6,7 @@ gem 'rails', '4.2.0'
 # Use postgresql as the database for Active Record
 gem 'pg'
 gem 'bcrypt'
+gem 'better_errors'
 gem 'bower-rails'
 gem 'rack-attack'
 gem 'devise'
