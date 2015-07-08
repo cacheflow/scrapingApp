@@ -16,10 +16,12 @@
             <li><%= link_to "EC Content Management Tool", welcome_index_path, class: "navbar-brand" %></li>
             <li><%=link_to "Get Mascus", new_construction_path %></li>
             <li><%=link_to "Get Recycler", new_recycler_path %></li>
+            <li><%=link_to "Get Locanto", new_locanto_path %></li>
             <li><%=link_to "Get Backpage", new_backpage_path %></li>
-            <li><%=link_to "See  Mascus ads", constructions_path %></li>
-            <li><%=link_to "See  Recycler ads", recyclers_path %></li>
-            <li><%=link_to "See  Backpage ads", backpages_path %></li>
+            <li><%=link_to "See Mascus ads", constructions_path %></li>
+            <li><%=link_to "See Locanto ads", locantos_path %></li>
+            <li><%=link_to "See Recycler ads", recyclers_path %></li>
+            <li><%=link_to "See Backpage ads", backpages_path %></li>
             <li><%=link_to "Log Out",  destroy_user_session_path, :method => :delete %> </li>
         </ul>
     </div>

@@ -1,0 +1,35 @@
+
+  <h1>Locanto</h1> 
+
+  <div id = "search_form">
+    <%= form_tag @locanto, url:  locantos_path, method: :get do %>
+        <%= text_field_tag :search, params[:search], :id => 'search_field' %>
+        <%= submit_tag "Search", :name => nil,class: "btn btn-info" %> 
+        <%= link_to "Clear", locantos_path %>
+        <%= link_to "Download your Locanto ads", locantos_path(format: "csv", search: params[:search]), class: "btn btn-primary" %>
+    <% end %> 
+  </div>
+
+
+
+<table>
+  <tr> 
+    <td>Title</td>
+    <td>Body</td>
+    <td style="padding: 10px;">Number</td>
+    <td>Image</td>
+  </tr> 
+
+
+
+  <tr> 
+    <% @locantos.each do |p| %> 
+      <td><%=p.title%> </td>
+      <td> <%=p.body%></td>
+      <td><%=p.number %> </td>
+      <td><%=image_tag("#{p.image}")%> </td>
+  </tr> 
+  <% end %> 
+
+</table>
+

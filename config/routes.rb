@@ -7,6 +7,7 @@
   resources :pennysavers
   resources :recyclers
   resources :backpages
+  resources :locantos
   root "welcome#index"
   get 'craigslistads', to: "craigslists#index", as: "craigslistads"  
   get 'mascusads', to: "constructions#index", as: "mascusads"

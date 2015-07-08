@@ -1,0 +1,21 @@
+  <div id = "bear" style="display: none;"> 
+     <%= image_tag("bear.gif") %> 
+  </div> 
+
+  <div class = "search_form">
+      <%=bootstrap_form_for @locanto, html: {'data-parsley-validate' => ''} do |c| %> 
+        <%=c.search_field :site, required: true, 'data-parsley-trigger' => 
+              'blur', placeholder: 'enter a locanto url' %>
+        <%=c.number_field :pages, required: true, 'data-parsley-trigger' => 'blur', placeholder: "enter the amount of pages you want to scrape" %> 
+        <%=c.submit "Scrape", class: "btn btn-primary" %> 
+    <% end %>  
+  </div> 
+
+<script type="text/javascript">
+$(document).ready(
+  $('.btn').click(function(){
+    $('.search_form').hide();
+    $('#bear').show();
+  })
+);  
+</script>
