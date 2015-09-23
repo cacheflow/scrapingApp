@@ -1,3 +1,4 @@
+![scraping App](/public/assets/ec.png)
 A just in time scraping application that uses Nokogiri, Mechanize, and Selenium to scrape Craigslist, PennySaver, Locantos, Backpage, and Recycler.
 
 Steps to run it:
@@ -7,4 +8,4 @@ Steps to run it:
 3. Sit back and let the scraper run in the background.
 4. Once it's done you'll be redirected to the index view where you'll see all of your ads that you've scraped.
 5. On the index page, you'll see a button to download all of the ads or a search bar to filter the results and only download the ads you want.
-6. Have fun! 
+6. Have fun!
