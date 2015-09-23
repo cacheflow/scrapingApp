@@ -78,14 +78,14 @@ development:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
-production:
- <<: *default
- adapter: ENV["ADAPTER"]
- host: ENV["HOST"]
- database: ENV["DATABASE"]
- username: ENV["DATABASE_USERNAME"]
- port: ENV["DB_PORT"]
- password: ENV["DB_PASSWORD"]
- url: ENV["DATABASE_URL"]
- sslmode: ENV["SSL_MODE"]
-
+# production:
+#  <<: *default
+#  adapter: ENV["ADAPTER"]
+#  host: ENV["HOST"]
+#  database: ENV["DATABASE"]
+#  username: ENV["DATABASE_USERNAME"]
+#  port: ENV["DB_PORT"]
+#  password: ENV["DB_PASSWORD"]
+#  url: ENV["DATABASE_URL"]
+#  sslmode: ENV["SSL_MODE"]
+#
