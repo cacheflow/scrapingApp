@@ -88,4 +88,3 @@ development:
 #  password: ENV["DB_PASSWORD"]
 #  url: ENV["DATABASE_URL"]
 #  sslmode: ENV["SSL_MODE"]
-#

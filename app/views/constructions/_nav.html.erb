@@ -14,7 +14,7 @@
           <p> Hello <%= current_user.email %> 
         <ul class="nav navbar-nav">
             <li><%= link_to "ScrapingTool", welcome_index_path, class: "navbar-brand" %></li>
-            <li><%=link_to "Get Craigslist", new_craigslist_path %> </li>
+            <li><%= link_to "Get Locanto", new_locanto_path %> </li>
             <li><%=link_to "Get Mascus", new_construction_path %></li>
             <li><%=link_to "See Mascus ads", constructions_path %></li>
             <li><%=link_to "Log Out", new_session_path, :method => :delete %> </li>
